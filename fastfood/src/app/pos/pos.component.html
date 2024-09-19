@@ -1,0 +1,25 @@
+<div class="row">
+    <h3>Point of Sell - POS</h3>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <form #frmPedido="ngForm" (ngSubmit)="cargarPedido(frmPedido)">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre:</label>
+                <input #nombre="ngModel" type="text" class="form-control" name="nombre" required [(ngModel)]="orden.name" required>
+                @if (nombre.getError('required') && (nombre.touched || nombre.dirty)) {
+                    <div class="text-danger">Se requiere nombre del cliente</div>
+                }
+            </div>
+            <div class="mb-3">
+                <label for="pedido" class="form-label">Pedido:</label>
+                <input #descripcion="ngModel" type="text" class="form-control" name="pedido" [(ngModel)]="orden.description" required>
+                @if (descripcion.getError('required') && (descripcion.touched || descripcion.dirty)) {
+                    <div class="text-danger">Se cargar el pedido</div>
+                }
+            </div>
+            <button type="submit" class="btn btn-primary">Ordenar</button>
+        </form>
+    </div>
+</div>

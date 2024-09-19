@@ -1,0 +1,23 @@
+<div class="row">
+    <h3>Pedidos listos para entregar</h3>
+</div>
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nro</th>
+                <th scope="col">Pedido</th>
+                <th scope="col">Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (orden of pedidoService.delivery; track $index) {
+                <tr>
+                    <td>{{orden.number}}</td>
+                    <td>{{orden.description}}</td>
+                    <td><button type="button" class="btn btn-primary" (click)="entregarPedido($index)">Entregar</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
